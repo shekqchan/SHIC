@@ -1,0 +1,24 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    --thema-duration: .4s;
+
+    transition: background-color var(--thema-duration);
+    
+}
+
+body[thema=black] {
+    background-color: #16171A;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: URL('/static/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Jua';
+    src: URL('/static/fonts/Jua-Regular.ttf') format('truetype');
+    font-weight: lighter;
+}

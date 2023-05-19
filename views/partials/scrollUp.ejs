@@ -1,0 +1,62 @@
+<!-- <div style="height: 1300px;">
+    <h1>asdfasdf</h1>
+</div> -->
+
+
+<script>
+    let ScrollBT = false;
+    
+    const ScrollEl = document.createElement('div');
+    ScrollEl.style.opacity = '0';
+    ScrollEl.style.pointerEvents = 'none';
+    ScrollEl.style.backgroundColor = '#fff';
+    ScrollEl.style.position = 'fixed';
+    ScrollEl.style.right = '30px';
+    ScrollEl.style.bottom = '30px';
+    ScrollEl.style.zIndex = '2';
+    ScrollEl.style.fontSize = '20px';
+    ScrollEl.style.color = '#868e96';
+    ScrollEl.style.transition = 'opacity 0.5s ease-in-out';
+    ScrollEl.style.borderRadius = '100%';
+    ScrollEl.style.height = '50px';
+    ScrollEl.style.width = '50px';
+    ScrollEl.style.textAlign = 'center';
+    ScrollEl.style.cursor = 'pointer';
+    ScrollEl.style.userSelect = 'none';
+    ScrollEl.style.border = '1px solid #bdbdbd';
+    ScrollEl.addEventListener('click', evt => { window.scrollTo({ top: 0, behavior: 'smooth' }); })
+
+    const ScrollSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    ScrollSVG.setAttributeNS(null, 'viewBox', '0 0 384 448');
+    ScrollSVG.style.display = 'block';
+    ScrollSVG.style.position = 'absolute';
+    ScrollSVG.style.width = '50%';
+    ScrollSVG.style.top = '22%';
+    ScrollSVG.style.left = '25%';
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+    path.setAttributeNS(null, 'fill', 'currentColor');
+    path.setAttributeNS(null,'d', 'M35.5 248l148-148.5c4.7-4.7 12.3-4.7 17 0l148 148.5c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L209 156.1V468c0 6.6-5.4 12-12 12h-10c-6.6 0-12-5.4-12-12V156.1L59.6 272c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.6-4.7-12.2 0-16.9zM0 44v8c0 6.6 5.4 12 12 12h360c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12H12C5.4 32 0 37.4 0 44z');
+
+    ScrollSVG.appendChild(path);
+    ScrollEl.appendChild(ScrollSVG);
+
+    window.addEventListener('scroll', evt => {
+        if (window.pageYOffset > 300 && !ScrollBT) {
+            ScrollBT = true;
+            ScrollEl.style.pointerEvents = 'all';
+            ScrollEl.style.opacity = '1';
+
+        } else {
+            if (window.pageYOffset < 300 && ScrollBT) {
+                ScrollBT = false;
+                ScrollEl.style.pointerEvents = 'none';
+                ScrollEl.style.opacity = '0';
+            }
+        }
+    });
+
+    window.onload = () => {
+        document.body.appendChild(ScrollEl);
+    };
+</script>

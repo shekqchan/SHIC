@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: URL('/static/fonts/Montserrat.ttf') format('truetype');
+}
+
+body {
+    --text-color: rgba(35,35,35,0.9);
+    --shad-style: 2px 7px 5px rgba(0,0,0,0.3), 0px -4px 10px rgba(255,255,255,0.3);
+    margin: 0; height: 100%; overflow: hidden
+}
+
+body[thema=black] {
+    --text-color: rgba(220,220,220,0.9);
+    --shad-style: 2px 7px 5px rgba(255, 255, 255, 0.3), 0px -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.space {
+    width:50%;
+    position: absolute;
+    transform: translateX(-10%);
+}
+
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.text-wrapper > h1 {
+    margin: 0;
+    user-select: none;
+    cursor: text;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+
+    color: var(--text-color);
+    text-shadow: var(--shad-style);
+    transition: color,text-shadow;
+    transition-duration: var(--thema-duration);
+}
+
+.errorCode { font-size: 5em; }
+.errorMsg { font-size: 4em; }
+
+.space_bg {
+    width: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 1300px) {
+    .space, .space_bg {
+        width: 100%;
+    }
+
+    .content {
+        width: 90%;
+        aspect-ratio: 1;
+
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .thumbnail {
+        aspect-ratio: 1;
+    }
+
+    /* .text-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .text-wrapper > h1 {
+        margin: 0;
+        text-align: center;
+        transform: unset;
+        position: relative;
+        top: 50%;
+    }
+
+    .errorCode { font-size: 4em; }
+    .errorMsg { font-size: 3em; } */
+}
